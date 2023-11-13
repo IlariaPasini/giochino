@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://3xudj4tevo8s"]
+
+[ext_resource type="Texture2D" uid="uid://cg8wm4xtptwg" path="res://icon.svg" id="1_3syjm"]
+[ext_resource type="Script" path="res://scene/player.gd" id="1_mm8np"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_mm8np")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3syjm")
+
+[node name="DropDelay" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="DropDelay" to="." method="_on_drop_delay_timeout"]

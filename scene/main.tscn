@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://nopmejxobtxy"]
+
+[ext_resource type="PackedScene" uid="uid://3xudj4tevo8s" path="res://scene/player.tscn" id="1_d426o"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_po0gq"]
+[ext_resource type="PackedScene" uid="uid://b46iresm8sldq" path="res://scene/box.tscn" id="3_n4nfa"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_po0gq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 700.0
+offset_bottom = 700.0
+grow_horizontal = 0
+color = Color(0.709804, 0.87451, 0.933333, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_d426o")]
+position = Vector2(353, 80)
+scale = Vector2(0.5, 0.5)
+
+[node name="Box" parent="." instance=ExtResource("3_n4nfa")]
+position = Vector2(305, 239)
+scale = Vector2(3, 3)
+
+[node name="Fruits" type="Node2D" parent="."]
+
+[connection signal="drop" from="Player" to="." method="_on_player_drop"]
